@@ -1,0 +1,8 @@
+def print_details(**kwargs):
+    """Function to print key-value pairs from keyword arguments."""
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_details(name="Alice", age=25, city="New York")
+
+print_details(language="Python", version=3.10, framework="Django")
