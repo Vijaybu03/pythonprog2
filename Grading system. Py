@@ -1,0 +1,14 @@
+def get_grade(marks):
+    """Return the grade based on the marks."""
+    if marks >= 90:
+        return "A"
+    elif marks >= 75:
+        return "B"
+    elif marks >= 50:
+        return "C"
+    else:
+        return "F"
+
+
+marks = int(input("Enter student's marks: "))
+print(f"Grade: {get_grade(marks)}")
