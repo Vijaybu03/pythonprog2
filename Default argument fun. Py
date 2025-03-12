@@ -1,0 +1,8 @@
+def greet(name, message="Hello"):
+    """Function to greet a person with a default message."""
+    print(f"{message}, {name}!")
+
+greet("Alice", "Good morning")
+
+
+greet("Bob") 
