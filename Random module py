@@ -1,0 +1,8 @@
+import random
+
+def generate_random_number(start, end):
+    """Function to generate a random number between start and end."""
+    return random.randint(start, end)
+
+print(generate_random_number(1, 100))  # Random number between 1 and 100
+print(generate_random_number(50, 500))  # Random number between 50 and 500
