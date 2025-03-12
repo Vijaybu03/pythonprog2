@@ -1,0 +1,11 @@
+import math
+
+
+num = int(input("Enter a number: "))
+
+sqrt_result = math.sqrt(num)
+factorial_result = math.factorial(num)
+sine_result = math.sin(math.radians(num))
+print(f"Square root of {num}: {sqrt_result}")
+print(f"Factorial of {num}: {factorial_result}")
+print(f"Sine of {num} degrees: {sine_result}")
