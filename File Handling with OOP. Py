@@ -1,0 +1,30 @@
+class FileHandler:
+    def __init__(self, filename):
+        self.filename = filename  # Store the file name
+
+    def write_to_file(self, content):
+        """Writes content to the file."""
+        with open(self.filename, "w") as file:
+            file.write(content)
+        return "Content written successfully."
+
+    def append_to_file(self, content):
+        """Appends content to the file."""
+        with open(self.filename, "a") as file:
+            file.write(content)
+        return "Content appended successfully."
+
+    def read_from_file(self):
+        """Reads content from the file."""
+        try:
+            with open(self.filename, "r") as file:
+                return file.read()
+        except FileNotFoundError:
+            return "File not found."
+
+file_handler = FileHandler("example.txt")
+print(file_handler.write_to_file("Hello, this is a test.\n"))
+
+print(file_handler.append_to_file("Appending more content.\n"))
+
+print("File Contents:\n" + file_handler.read_from_file())
