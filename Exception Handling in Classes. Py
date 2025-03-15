@@ -1,0 +1,33 @@
+class BankAccount:
+    def __init__(self, owner, balance=0.0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        """Handles deposits with exception checking."""
+        try:
+            if amount <= 0:
+                raise ValueError("Deposit amount must be positive.")
+            self.balance += amount
+            return f"Deposit successful! New balance: ${self.balance:.2f}"
+        except ValueError as e:
+            return f"Error: {e}"
+
+    def withdraw(self, amount):
+        """Handles withdrawals with exception checking."""
+        try:
+            if amount <= 0:
+                raise ValueError("Withdrawal amount must be positive.")
+            if amount > self.balance:
+                raise ValueError("Insufficient funds.")
+            self.balance -= amount
+            return f"Withdrawal successful! New balance: ${self.balance:.2f}"
+        except ValueError as e:
+            return f"Error: {e}"
+
+account = BankAccount("Alice", 500)
+
+print(account.deposit(200))   
+print(account.withdraw(100))  
+print(account.withdraw(1000)) 
+print(account.deposit(-50))
