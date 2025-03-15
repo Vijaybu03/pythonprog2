@@ -1,0 +1,36 @@
+class Engine:
+    def __init__(self, horsepower, fuel_type):
+        self.horsepower = horsepower
+        self.fuel_type = fuel_type
+
+    def start(self):
+        return "Engine started"
+
+    def stop(self):
+        return "Engine stopped"
+
+    def __str__(self):
+        return f"{self.horsepower} HP, {self.fuel_type} engine"
+
+class Car:
+    def __init__(self, brand, model, engine):
+        self.brand = brand
+        self.model = model
+        self.engine = engine  # Composition: Car has an Engine
+
+    def start_car(self):
+        return f"{self.brand} {self.model}: {self.engine.start()}"
+
+    def stop_car(self):
+        return f"{self.brand} {self.model}: {self.engine.stop()}"
+
+    def __str__(self):
+        return f"{self.brand} {self.model} with {self.engine}"
+
+
+engine1 = Engine(150, "Petrol")
+
+car1 = Car("Toyota", "Corolla", engine1)
+print(car1)              
+print(car1.start_car()) 
+print(car1 stop_car())
