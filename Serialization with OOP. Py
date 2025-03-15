@@ -1,0 +1,37 @@
+import pickle
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"Person(Name: {self.name}, Age: {self.age})"
+
+    def save_to_file(self, filename):
+        """Serializes the object and saves it to a file."""
+        try:
+            with open(filename, "wb") as file:
+                pickle.dump(self, file)
+            return "Object saved successfully."
+        except Exception as e:
+            return f"Error saving object: {e}"
+
+    @staticmethod
+    def load_from_file(filename):
+        """Loads (deserializes) an object from a file."""
+        try:
+            with open(filename, "rb") as file:
+                return pickle.load(file)
+        except FileNotFoundError:
+            return "Error: File not found."
+        except Exception as e:
+            return f"Error loading object
+person1 = Person("Alice", 30)
+
+
+print(person1.save_to_file("person.pkl"))
+
+
+loaded_person = Person.load_from_file("person.pkl")
+print(loaded_person)  # Output: Person(Name: Alice, Age: 30)
