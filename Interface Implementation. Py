@@ -1,0 +1,31 @@
+from abc import ABC, abstractmethod
+
+
+class PaymentMethod(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        """Abstract method that must be implemented by subclasses"""
+        pass
+
+
+class CreditCardPayment(PaymentMethod):
+    def pay(self, amount):
+        return f"Paid ${amount} using Credit Card."
+
+class PayPalPayment(PaymentMethod):
+    def pay(self, amount):
+        return f"Paid ${amount} using PayPal."
+
+class BitcoinPayment(PaymentMethod):
+    def pay(self, amount):
+        return f"Paid ${amount} using Bitcoin."
+
+
+payment1 = CreditCardPayment()
+print(payment1.pay(100))
+
+payment2 = PayPalPayment()
+print(payment2.pay(200))  
+
+payment3 = BitcoinPayment()
+print(payment3.pay(300))  
